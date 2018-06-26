@@ -72,7 +72,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
                 if #available(iOS 12.0, *) {
                     configuration = ARImageTrackingConfiguration()
-                    (configuration as! ARImageTrackingConfiguration).trackingImages = referenceImages
+                    (configuration as! ARImageTrackingConfiguration).trackingImages =  Set(referenceImages.map { $0 }) 
                     (configuration as! ARImageTrackingConfiguration).maximumNumberOfTrackedImages = referenceImages.count
                 } else {
                     configuration = ARWorldTrackingConfiguration()
